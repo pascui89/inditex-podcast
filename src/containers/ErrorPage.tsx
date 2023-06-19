@@ -1,5 +1,9 @@
 import { useRouteError } from 'react-router-dom';
 
+/**
+ * Component for displaying an error page.
+ * It retrieves the error information from the route using the `useRouteError` hook.
+ */
 export const ErrorPage = () => {
   const error: any = useRouteError();
 

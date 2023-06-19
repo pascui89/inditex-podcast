@@ -1,7 +1,7 @@
-import { EpisodeReducerState } from './EpisodeReducerState';
-import { PodcastReducerState } from './PodcastReducerState';
+import { EpisodeState } from './episodeTypes';
+import { PodcastState } from './podcastTypes';
 
 export type RootState = {
-  podcastReducer: PodcastReducerState;
-  episodeReducer: EpisodeReducerState;
+  podcastReducer: PodcastState;
+  episodeReducer: EpisodeState;
 };

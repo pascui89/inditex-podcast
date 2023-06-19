@@ -13,15 +13,17 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store/types/RootState';
 
-function ResponsiveAppBar() {
+/**
+ * ResponsiveAppBar Component
+ *
+ * Displays a responsive app bar with a logo, title, and loading spinner.
+ */
+export default function ResponsiveAppBar() {
   const navigate = useNavigate();
-  const { loading, loadingDetail, loadingEpisode } = useSelector(
-    (state: RootState) => ({
-      loading: state.podcastReducer.loading,
-      loadingDetail: state.episodeReducer.loading,
-      loadingEpisode: state.episodeReducer.loadingEpisode,
-    })
-  );
+  const loading = useSelector((state: RootState) => state.podcastReducer.loading);
+  const loadingDetail = useSelector((state: RootState) => state.episodeReducer.loading);
+  const loadingEpisode = useSelector((state: RootState) => state.episodeReducer.loadingEpisode);
+  
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
@@ -82,5 +84,3 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-
-export default ResponsiveAppBar;

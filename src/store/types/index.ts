@@ -1,4 +1,3 @@
-export type { Episode } from './Episode';
-export type { Podcast, PodcastEntry } from './Podcast';
-export type { PodcastDetail, mockPodcastDetail } from './PodcastDetail';
-export type { ResponseData } from './ResponseData';
+export type { EpisodeActionTypes, EpisodeState } from './episodeTypes';
+export type { PodcastActionTypes, PodcastState } from './podcastTypes';
+export type { RootState } from './RootState';

@@ -1,24 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { initialState } from '../types/PodcastReducerState';
-import { PodcastEntry } from '../types';
+import { initialState } from '../types/podcastTypes';
+import { PodcastEntry } from '../../models';
 
 const podcastSlice = createSlice({
   name: 'podcast',
   initialState,
   reducers: {
     setFilter: (state, action) => {
-      const localeData = localStorage.getItem('podcastItems');
-      const items = localeData
-        ? JSON.parse(localeData)?.feed.entry
-        : state.items;
-      state.filteredItems = items.filter(
+      state.filteredItems = state.items.filter(
         (item: PodcastEntry) =>
           item['im:name']?.label
             .toLowerCase()
-            .includes(action.payload.toLowerCase()) ||
+            .includes(action.payload?.toLowerCase()) ||
           item['im:artist']?.label
             .toLowerCase()
-            .includes(action.payload.toLowerCase())
+            .includes(action.payload?.toLowerCase())
       );
       state.loading = false;
       state.error = null;
@@ -33,7 +29,7 @@ const podcastSlice = createSlice({
         : [action.payload.feed.entry];
       state.loading = false;
       state.items = result;
-      state.itemSize = result.length;
+      state.filteredItems = result;
     },
     fetchPodcastsFailure: (state, action) => {
       state.loading = false;

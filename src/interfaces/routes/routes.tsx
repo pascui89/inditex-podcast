@@ -1,7 +1,4 @@
-import {
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { DetailView, EpisodeView, ErrorPage, MainView } from '../../containers';
 
 export function Router() {

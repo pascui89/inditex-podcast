@@ -1,21 +1,28 @@
 import { Dispatch } from 'redux';
 import { Podcast, PodcastDetail } from '../../models';
 import { fetchDetail, fetchPodcasts } from '../../services/itunesService';
-import { fetchPodcastsBegin, fetchPodcastsFailure, fetchPodcastsSuccess } from '../reducers/podcastsReducer';
-import { fetchDetailBegin, fetchDetailFailure, fetchDetailSuccess } from '../reducers/episodeReducer';
+import {
+  fetchPodcastsBegin,
+  fetchPodcastsFailure,
+  fetchPodcastsSuccess,
+} from '../reducers/podcastsReducer';
+import {
+  fetchDetailBegin,
+  fetchDetailFailure,
+  fetchDetailSuccess,
+} from '../reducers/episodeReducer';
 
-export const fetchDetailAction = (id: string, limit: number = 100) =>  {
+export const fetchDetailAction = (id: string, limit: number = 100) => {
   return async (dispatch: Dispatch) => {
     dispatch(fetchDetailBegin());
-    
+
     try {
-        const details: PodcastDetail = await fetchDetail(id, limit);
-        dispatch(fetchDetailSuccess(details));
-     
+      const details: PodcastDetail = await fetchDetail(id, limit);
+      dispatch(fetchDetailSuccess(details));
     } catch (error: any) {
       dispatch(fetchDetailFailure(error.message));
     }
-  }
+  };
 };
 
 export const fetchPodcastsAction = () => {

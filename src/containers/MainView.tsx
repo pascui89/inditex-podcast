@@ -1,7 +1,4 @@
-import {
-  useEffect,
-  useMemo
-} from 'react';
+import { useEffect, useMemo } from 'react';
 import { Container, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { fetchPodcastsAction } from '../store/actions/podcastActions';
@@ -16,8 +13,12 @@ import { useAppDispatch } from '../interfaces/hooks/useAppDispatch';
  */
 export function MainView() {
   const dispatch = useAppDispatch();
-  const filteredItems = useSelector((state: RootState) => state.podcastReducer.filteredItems);
-  const loading = useSelector((state: RootState) => state.episodeReducer.loading);
+  const filteredItems = useSelector(
+    (state: RootState) => state.podcastReducer.filteredItems
+  );
+  const loading = useSelector(
+    (state: RootState) => state.episodeReducer.loading
+  );
 
   const items = useMemo(() => filteredItems, [filteredItems]);
 

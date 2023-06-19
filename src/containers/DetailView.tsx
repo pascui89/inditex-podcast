@@ -17,13 +17,19 @@ import { fetchDetailAction } from '../store/actions/podcastActions';
 export const DetailView = () => {
   const { podcastId } = useParams();
   const dispatch = useAppDispatch();
-  const filteredItems = useSelector((state: RootState) => state.podcastReducer.filteredItems);
-  const podCastDetail = useSelector((state: RootState) => state.episodeReducer.podCastDetail);
-  const loading = useSelector((state: RootState) => state.episodeReducer.loading);
+  const filteredItems = useSelector(
+    (state: RootState) => state.podcastReducer.filteredItems
+  );
+  const podCastDetail = useSelector(
+    (state: RootState) => state.episodeReducer.podCastDetail
+  );
+  const loading = useSelector(
+    (state: RootState) => state.episodeReducer.loading
+  );
   const error = useSelector((state: RootState) => state.episodeReducer.error);
 
   const { podCast } = usePodcast(podcastId, filteredItems);
-  const [ showTimerAlert, setShowTimerAlert ] = useState(false);
+  const [showTimerAlert, setShowTimerAlert] = useState(false);
 
   useEffect(() => {
     let timerId: NodeJS.Timeout | null = null;
@@ -83,7 +89,11 @@ interface AlertComponentProps {
   error: string | null;
 }
 
-const AlertComponent: React.FC<AlertComponentProps> = ({ showTimerAlert, loading, error }) => {
+const AlertComponent: React.FC<AlertComponentProps> = ({
+  showTimerAlert,
+  loading,
+  error,
+}) => {
   if (showTimerAlert && loading) {
     return (
       <Grid item xs={12} md={12}>

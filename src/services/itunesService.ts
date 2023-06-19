@@ -3,14 +3,17 @@ import { Episode, Podcast, PodcastDetail } from '../models';
 
 const ALL_ORIGINS_URL = 'https://api.allorigins.win/get?url=';
 
-export const fetchDetail = async (id: string, limit: number = 100): Promise<PodcastDetail> => {
-    const response = await axios.get(
-      `${ALL_ORIGINS_URL}${encodeURIComponent(
-        `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`
-      )}`
-    );
-    return JSON.parse(response.data.contents) as PodcastDetail;
-  };
+export const fetchDetail = async (
+  id: string,
+  limit: number = 100
+): Promise<PodcastDetail> => {
+  const response = await axios.get(
+    `${ALL_ORIGINS_URL}${encodeURIComponent(
+      `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`
+    )}`
+  );
+  return JSON.parse(response.data.contents) as PodcastDetail;
+};
 
 export const fetchEpisode = async (
   episodeId: number,

@@ -20,10 +20,16 @@ import { RootState } from '../store/types/RootState';
  */
 export default function ResponsiveAppBar() {
   const navigate = useNavigate();
-  const loading = useSelector((state: RootState) => state.podcastReducer.loading);
-  const loadingDetail = useSelector((state: RootState) => state.episodeReducer.loading);
-  const loadingEpisode = useSelector((state: RootState) => state.episodeReducer.loadingEpisode);
-  
+  const loading = useSelector(
+    (state: RootState) => state.podcastReducer.loading
+  );
+  const loadingDetail = useSelector(
+    (state: RootState) => state.episodeReducer.loading
+  );
+  const loadingEpisode = useSelector(
+    (state: RootState) => state.episodeReducer.loadingEpisode
+  );
+
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {

@@ -16,9 +16,15 @@ import { fetchDetailAction } from '../store/actions/podcastActions';
 export function EpisodeView() {
   const { podcastId } = useParams();
   const dispatch = useAppDispatch();
-  const filteredItems = useSelector((state: RootState) => state.podcastReducer.filteredItems);
-  const podCastDetail = useSelector((state: RootState) => state.episodeReducer.podCastDetail);
-  const loading = useSelector((state: RootState) => state.episodeReducer.loading);
+  const filteredItems = useSelector(
+    (state: RootState) => state.podcastReducer.filteredItems
+  );
+  const podCastDetail = useSelector(
+    (state: RootState) => state.episodeReducer.podCastDetail
+  );
+  const loading = useSelector(
+    (state: RootState) => state.episodeReducer.loading
+  );
 
   const { podCast } = usePodcast(podcastId, filteredItems);
 

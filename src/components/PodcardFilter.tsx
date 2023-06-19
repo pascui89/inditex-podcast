@@ -11,8 +11,12 @@ import { useDebounce } from '../interfaces/hooks';
  */
 export default function PodcardFilter() {
   const dispatch = useAppDispatch();
-  const filteredItems = useSelector((state: RootState) => state.podcastReducer.filteredItems);
-  const loading = useSelector((state: RootState) => state.podcastReducer.loading);
+  const filteredItems = useSelector(
+    (state: RootState) => state.podcastReducer.filteredItems
+  );
+  const loading = useSelector(
+    (state: RootState) => state.podcastReducer.loading
+  );
   const [text, setText] = useState('');
 
   const [debouncedFilter] = useDebounce((filter: string) => {

@@ -67,7 +67,12 @@ export default function ResponsiveAppBar() {
       sx={{ boxShadow: '0px 2px 0px 0px rgba(0,0,0,0.14)' }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters className="flex justify-between">
+        <Toolbar disableGutters 
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Tooltip title="Go Home">
               <IconButton onClick={handleGoHomeRedirect}>

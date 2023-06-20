@@ -1,14 +1,15 @@
 import { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Avatar, Card, CardContent, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, Skeleton, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { PodcastEntry } from '../models';
 
 type Props = {
-  item: PodcastEntry;
+  item: PodcastEntry | null;
+  loading?: boolean;
 };
 
 /**
@@ -24,13 +25,14 @@ export default function Podcard(props: Props) {
   const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  const { loading = false } = props;
 
   /**
    * Handle card click event.
    * Navigates to the podcast detail page.
    */
   const handleCardClick = () => {
-    navigate(`/podcast/${props.item.id.attributes['im:id']}`);
+    navigate(`/podcast/${props.item?.id.attributes['im:id']}`);
   };
 
   return (
@@ -56,17 +58,24 @@ export default function Podcard(props: Props) {
           flexDirection: 'column',
         }}
       >
-        <Avatar
-          sx={{ height: matches ? 150 : 50, width: matches ? 150 : 50 }}
-          aria-label="recipe"
-          src={item['im:image'][2].label}
-        />
-        <Typography variant="h6" gutterBottom>
-          {props.item['im:name'].label}
-        </Typography>
-        <Typography variant="subtitle1" gutterBottom>
-          {props.item['im:artist'].label}
-        </Typography>
+        {loading ? <Skeleton animation="wave" variant="circular" width={matches ? 150 : 50} height={matches ? 150 : 50} /> : (
+            <Avatar
+              sx={{ height: matches ? 150 : 50, width: matches ? 150 : 50 }}
+              aria-label="recipe"
+              src={item && item['im:image'][2].label || ""}
+            />
+          )
+        }
+        {loading ? <Skeleton animation="wave" height={32} width="100%" /> : (
+          <Typography variant="h6" gutterBottom id='PodcastName'>
+            {item && item['im:name'].label}
+          </Typography>
+        )}
+        {loading ? <Skeleton animation="wave" height={28} width="100%" /> : (
+          <Typography variant="subtitle1" gutterBottom id='PodcastArtist'>
+            {item && item['im:artist'].label}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

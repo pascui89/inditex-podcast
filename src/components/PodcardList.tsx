@@ -4,6 +4,7 @@ import Podcard from './Podcard';
 
 type Props = {
   items: PodcastEntry[];
+  loading: boolean;
 };
 
 /**
@@ -12,9 +13,20 @@ type Props = {
  * @param {PodcastEntry[]} items - List of podcast entries.
  */
 export function PodcardList(props: Props) {
+  const { loading, items } = props;
+
+  const renderLoadingData = () => {
+    return Array.from({ length: 20 }, (_, index) => (
+      <Grid item xs={6} md={3} key={index}>
+        <Podcard key={`p-${index}`} item={null} loading={true} />
+      </Grid>
+    ));
+  }
+
   return (
     <Grid container spacing={2}>
-      {props.items?.map((item, index) => {
+      {loading && renderLoadingData()}
+      {!loading && items?.map((item, index) => {
         return (
           <Grid item xs={6} md={3} key={index}>
             <Podcard key={`p-${index}`} item={item} />

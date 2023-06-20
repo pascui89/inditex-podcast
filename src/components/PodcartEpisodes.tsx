@@ -66,7 +66,14 @@ export default function PodcartEpisodes(props: IProp) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {podCastDetail?.results.map(
+            {loading && Array.from({ length: 10 }, (_, index) => ( 
+              <StyledTableRow key={index}>
+                <StyledTableCell component="th" scope="row" colSpan={3} sx={{ margin: 0, padding: 0 }}>
+                  <Skeleton key={`skeleton-${index}`} variant="rectangular" width="100%" height={53} />            
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+            {!loading && podCastDetail?.results.map(
               (podCastDetail: Episode, index: number) => (
                 <StyledTableRow key={index}>
                   <StyledTableCell component="th" scope="row">
@@ -100,10 +107,7 @@ export default function PodcartEpisodes(props: IProp) {
     >
       <CardContent sx={{ textAlign: 'left' }} style={{ margin: 0, padding: 0 }}>
         <CardContent style={{ margin: 0, padding: 0 }}>
-          {loading && (
-            <Skeleton variant="rectangular" width="100%" height={600} />
-          )}
-          {!loading && renderGridTable}
+          {renderGridTable}
         </CardContent>
       </CardContent>
     </Card>

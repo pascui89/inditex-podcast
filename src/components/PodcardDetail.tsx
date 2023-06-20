@@ -44,7 +44,7 @@ export default function PodcardDetail(props: IProp) {
   return (
     <Card id="podcardDetail" className="max-w-full">
       {podCast && (
-        <StyledMainCardContent>
+        <StyledMainCardContent data-testid="podcardDetail" >
           <StyledCardMedia
             sx={{ height: 150, width: 150 }}
             image={podCast?.['im:image']?.[2]?.label}

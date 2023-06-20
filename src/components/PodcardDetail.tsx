@@ -20,7 +20,7 @@ export default function PodcardDetail(props: IProp) {
       {podCast && (
         <CardContent
           sx={{
-            maxWidth: 345,
+            maxWidth: '20vw',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -33,12 +33,13 @@ export default function PodcardDetail(props: IProp) {
           />
           <CardContent
             sx={{
+              maxWidth: '100%',
               borderTop: '0.1em solid rgba(0,0,0,0.14)',
               padding: '0.5em',
               marginTop: 4,
             }}
           >
-            <div style={{ textAlign: 'initial', marginBottom: 4 }}>
+            <div style={{ textAlign: 'left', marginBottom: 4 }}>
               <Typography variant="h6" gutterBottom>
                 {podCast?.['im:name'].label}
               </Typography>

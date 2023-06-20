@@ -71,6 +71,7 @@ export default function PodcartEpisodes(props: IProp) {
                 <StyledTableRow key={index}>
                   <StyledTableCell
                     component="th"
+                    data-testid="skeleton"
                     scope="row"
                     colSpan={3}
                     sx={{ margin: 0, padding: 0 }}

@@ -60,6 +60,7 @@ export default function Podcard(props: Props) {
       >
         {loading ? (
           <Skeleton
+            data-testid="loading-data"
             animation="wave"
             variant="circular"
             width={matches ? 150 : 50}
@@ -75,7 +76,7 @@ export default function Podcard(props: Props) {
         {loading ? (
           <Skeleton animation="wave" height={32} width="100%" />
         ) : (
-          <Typography variant="h6" gutterBottom id="PodcastName">
+          <Typography variant="h6" gutterBottom id="PodcastName" data-testid="podcastName">
             {item && item['im:name'].label}
           </Typography>
         )}

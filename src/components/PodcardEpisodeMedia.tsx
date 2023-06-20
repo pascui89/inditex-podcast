@@ -36,6 +36,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
         <CardContent style={{ margin: 0, padding: 0 }}>
           {loading ? (
             <Skeleton
+              id="skeletonLoader"
               animation="wave"
               variant="rounded"
               width="100%"
@@ -57,6 +58,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
             />
           ) : (
             <p
+              data-testid="episodeDescription"
               dangerouslySetInnerHTML={{ __html: episode?.description || '' }}
             />
           )}
@@ -69,6 +71,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
             />
           ) : (
             <audio
+              data-testid="episodeUrl"
               style={{ width: '100%' }}
               src={episode?.episodeUrl}
               controls={true}

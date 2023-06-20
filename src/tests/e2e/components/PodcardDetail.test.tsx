@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import PodcardDetail from '../../../components/PodcardDetail';
 import { podcastMock } from '../../../models/Podcast';
+import '@testing-library/jest-dom/extend-expect';
 
 global.React = React;
 
@@ -17,6 +18,6 @@ describe('PodcardDetail Test', () => {
   it('should not render anything without podcast data', () => {
     render(<PodcardDetail podCast={undefined} />);
     const podcardDetail = screen.queryByTestId('podcardDetail');
-    expect(podcardDetail).toBeNull();
+    expect(podcardDetail).not.toBeInTheDocument();
   });
 });

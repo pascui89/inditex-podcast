@@ -1,10 +1,8 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import ResponsiveAppBar from '../../../components/AppBar';
 import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
-
+import PodcardFilter from '../../../components/PodcardFilter';
 import React from 'react';
 
 global.React = React;
@@ -21,23 +19,25 @@ const storeMocked = mockStore({
   },
 });
 
-describe('ResponsiveAppBar', () => {
+describe('PodcardFilter', () => {
   let store = storeMocked;
 
   beforeEach(() => {
     store = storeMocked;
   });
-
-  it('should render without errors', () => {
-    const { getByText } = render(
+  test('renders filter input and badge', () => {
+    render(
       <Provider store={store}>
-        <BrowserRouter>
-          <ResponsiveAppBar />
-        </BrowserRouter>
+        <PodcardFilter />
       </Provider>
     );
 
-    const appBarTitle = getByText('Podcaster');
-    expect(appBarTitle).toBeInTheDocument();
+    // Verificar la existencia del input de filtro
+    const filterInput = screen.getByTestId('filterText');
+    expect(filterInput).toBeInTheDocument();
+
+    // Verificar la existencia del badge
+    const badgeElement = screen.getByTestId('badgeData');
+    expect(badgeElement).toBeInTheDocument();
   });
 });

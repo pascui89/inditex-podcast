@@ -18,13 +18,18 @@ export default function PodcardEpisodesCounter(props: IProp) {
   const { podCastDetail, loading } = props;
   return (
     <Card id="podcardEpisodes">
-      <CardContent className='text-left'>
-        <CardContent className='p-0'>
+      <CardContent className="text-left">
+        <CardContent className="p-0">
           {loading && (
-            <Skeleton variant="rectangular" width="100%" height={60} />
+            <Skeleton
+              data-testid="loading-skeleton"
+              variant="rectangular"
+              width="100%"
+              height={60}
+            />
           )}
           {!loading && (
-            <Typography variant="h6">
+            <Typography variant="h6" data-testid="episodeCounter">
               Episodes: {podCastDetail?.resultCount}
             </Typography>
           )}

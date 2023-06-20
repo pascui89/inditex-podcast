@@ -19,12 +19,12 @@ export default function PodcardEpisodesCounter(props: IProp) {
   return (
     <Card id="podcardEpisodes">
       <CardContent sx={{ textAlign: 'left' }}>
-        <CardContent style={{ margin: 0, padding: 0 }}>
+        <CardContent style={{ padding: 0 }}>
           {loading && (
             <Skeleton variant="rectangular" width="100%" height={60} />
           )}
           {!loading && (
-            <Typography variant="h6" mb={0}>
+            <Typography variant="h6">
               Episodes: {podCastDetail?.resultCount}
             </Typography>
           )}

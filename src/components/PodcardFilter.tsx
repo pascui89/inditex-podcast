@@ -36,7 +36,7 @@ export default function PodcardFilter() {
     <Grid container sx={{ justifyContent: 'flex-end' }}>
       <Grid item xs={8} md={4} sx={{ textAlign: 'right' }}>
         <Badge
-          badgeContent={filteredItems.length}
+          badgeContent={filteredItems?.length}
           color="info"
           sx={{ marginTop: 3 }}
         />

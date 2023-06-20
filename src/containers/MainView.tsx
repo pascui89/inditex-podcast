@@ -17,7 +17,7 @@ export function MainView() {
     (state: RootState) => state.podcastReducer.filteredItems
   );
   const loading = useSelector(
-    (state: RootState) => state.episodeReducer.loading
+    (state: RootState) => state.podcastReducer.loading
   );
 
   const items = useMemo(() => filteredItems, [filteredItems]);
@@ -30,10 +30,10 @@ export function MainView() {
     <Container maxWidth="xl">
       <Grid container mt={12} spacing={2}>
         <Grid item xs={12} sx={{ justifyContent: 'flex-end' }}>
-          {!loading && <PodcardFilter />}
+          <PodcardFilter />
         </Grid>
         <Grid item xs={12}>
-          <PodcardList items={items} />
+          <PodcardList loading={loading} items={items} />
         </Grid>
       </Grid>
     </Container>

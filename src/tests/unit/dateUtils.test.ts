@@ -1,4 +1,4 @@
-import { millisecondsToMinutesSeconds, toDateFormat } from "utils";
+import { millisecondsToMinutesSeconds, toDateFormat } from "../../utils";
 
 describe('Date Utils', () => {
   describe('toDateFormat', () => {

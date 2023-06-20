@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
 
 import React from 'react';
-import ResponsiveAppBar from 'components/AppBar';
+import ResponsiveAppBar from '../../../components/AppBar';
 
 global.React = React;
 

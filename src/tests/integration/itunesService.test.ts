@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { podcastMock } from 'models/Podcast';
-import { mockPodcastDetail } from 'models/PodcastDetail';
-import { fetchDetail, fetchPodcasts } from 'services/itunesService';
+import { podcastMock } from '../../models/Podcast';
+import { mockPodcastDetail } from '../../models/PodcastDetail';
+import { fetchDetail, fetchPodcasts } from '../../services/itunesService';
 
 jest.mock('axios');
 

@@ -1,5 +1,5 @@
-import { podcastMock } from 'models/Podcast';
-import { getLocalStorageData, setLocalStorageData } from 'utils';
+import { podcastMock } from '../../models/Podcast';
+import { getLocalStorageData, setLocalStorageData } from '../../utils';
 
 describe('LocalStorage Utils', () => {
   beforeEach(() => {

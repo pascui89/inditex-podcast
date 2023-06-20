@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import Podcard from '../../../components/Podcard';
-import { podcastMock } from 'models/Podcast';
+import { podcastMock } from '../../../models/Podcast';
 import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';

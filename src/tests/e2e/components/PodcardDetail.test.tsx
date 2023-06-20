@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { podcastMock } from 'models/Podcast';
 
 import React from 'react';
-import PodcardDetail from 'components/PodcardDetail';
+import PodcardDetail from '../../../components/PodcardDetail';
+import { podcastMock } from '../../../models/Podcast';
 
 global.React = React;
 

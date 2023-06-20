@@ -1,9 +1,35 @@
 import { PodcastEntry } from '../models';
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  styled,
+} from '@mui/material';
 
 interface IProp {
   podCast: PodcastEntry | undefined;
 }
+
+const StyledMainCardContent = styled(CardContent)`
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const StyledCardContent = styled(CardContent)`
+  max-width: 100%;
+  border-top: 0.1em solid rgba(0, 0, 0, 0.14);
+  padding: 0.5em;
+  margin-top: 4px;
+`;
+
+const StyledCardMedia = styled(CardMedia)`
+  height: 150px;
+  width: 150px;
+`;
 
 /**
  * PodCardDetail Component
@@ -16,30 +42,15 @@ export default function PodcardDetail(props: IProp) {
   const { podCast } = props;
 
   return (
-    <Card id="podcardDetail">
+    <Card id="podcardDetail" className="max-w-full">
       {podCast && (
-        <CardContent
-          sx={{
-            maxWidth: '20vw',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-          }}
-        >
-          <CardMedia
+        <StyledMainCardContent>
+          <StyledCardMedia
             sx={{ height: 150, width: 150 }}
             image={podCast?.['im:image']?.[2]?.label}
           />
-          <CardContent
-            sx={{
-              maxWidth: '100%',
-              borderTop: '0.1em solid rgba(0,0,0,0.14)',
-              padding: '0.5em',
-              marginTop: 4,
-            }}
-          >
-            <div style={{ textAlign: 'left', marginBottom: 4 }}>
+          <StyledCardContent>
+            <div className="text-left mb-4">
               <Typography variant="h6" gutterBottom>
                 {podCast?.['im:name'].label}
               </Typography>
@@ -57,11 +68,15 @@ export default function PodcardDetail(props: IProp) {
                 Description:
               </Typography>
               <Typography variant="subtitle1">
-                {podCast?.summary.label}
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: podCast?.summary.label || '',
+                  }}
+                />
               </Typography>
             </div>
-          </CardContent>
-        </CardContent>
+          </StyledCardContent>
+        </StyledMainCardContent>
       )}
     </Card>
   );

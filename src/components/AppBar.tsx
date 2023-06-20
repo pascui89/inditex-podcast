@@ -6,12 +6,32 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  styled,
 } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store/types/RootState';
+
+const StyledTypography = styled(Typography)`
+  display: flex;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #ff0000; /* Cambia el color de resaltado al pasar el ratón */
+  }
+
+  &::selection {
+    background-color: #ff0000; /* Cambia el color de fondo de la selección */
+    color: #ffffff; /* Cambia el color del texto de la selección */
+  }
+`;
 
 /**
  * ResponsiveAppBar Component
@@ -47,10 +67,7 @@ export default function ResponsiveAppBar() {
       sx={{ boxShadow: '0px 2px 0px 0px rgba(0,0,0,0.14)' }}
     >
       <Container maxWidth="xl">
-        <Toolbar
-          disableGutters
-          sx={{ display: 'flex', justifyContent: 'space-between' }}
-        >
+        <Toolbar disableGutters className="flex justify-between">
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Tooltip title="Go Home">
               <IconButton onClick={handleGoHomeRedirect}>
@@ -65,24 +82,14 @@ export default function ResponsiveAppBar() {
                 />
               </IconButton>
             </Tooltip>
-            <Typography
+            <StyledTypography
               variant="h6"
               noWrap
-              component="a"
+              sx={{ marginLeft: '16px' }}
               onClick={handleGoHomeRedirect}
-              sx={{
-                ml: 2,
-                display: { md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                cursor: 'pointer',
-              }}
             >
               Podcaster
-            </Typography>
+            </StyledTypography>
           </div>
           {showSpinner && <CircularProgress />}
         </Toolbar>

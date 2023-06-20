@@ -58,21 +58,31 @@ export default function Podcard(props: Props) {
           flexDirection: 'column',
         }}
       >
-        {loading ? <Skeleton animation="wave" variant="circular" width={matches ? 150 : 50} height={matches ? 150 : 50} /> : (
-            <Avatar
-              sx={{ height: matches ? 150 : 50, width: matches ? 150 : 50 }}
-              aria-label="recipe"
-              src={item && item['im:image'][2].label || ""}
-            />
-          )
-        }
-        {loading ? <Skeleton animation="wave" height={32} width="100%" /> : (
-          <Typography variant="h6" gutterBottom id='PodcastName'>
+        {loading ? (
+          <Skeleton
+            animation="wave"
+            variant="circular"
+            width={matches ? 150 : 50}
+            height={matches ? 150 : 50}
+          />
+        ) : (
+          <Avatar
+            sx={{ height: matches ? 150 : 50, width: matches ? 150 : 50 }}
+            aria-label="recipe"
+            src={(item && item['im:image'][2].label) || ''}
+          />
+        )}
+        {loading ? (
+          <Skeleton animation="wave" height={32} width="100%" />
+        ) : (
+          <Typography variant="h6" gutterBottom id="PodcastName">
             {item && item['im:name'].label}
           </Typography>
         )}
-        {loading ? <Skeleton animation="wave" height={28} width="100%" /> : (
-          <Typography variant="subtitle1" gutterBottom id='PodcastArtist'>
+        {loading ? (
+          <Skeleton animation="wave" height={28} width="100%" />
+        ) : (
+          <Typography variant="subtitle1" gutterBottom id="PodcastArtist">
             {item && item['im:artist'].label}
           </Typography>
         )}

@@ -46,6 +46,7 @@ export default function PodcardFilter() {
           label="Filter podcasts..."
           variant="outlined"
           value={text}
+          disabled={loading}
           onChange={handleFilterChange}
         />
       </Grid>

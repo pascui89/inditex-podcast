@@ -66,34 +66,46 @@ export default function PodcartEpisodes(props: IProp) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {loading && Array.from({ length: 10 }, (_, index) => ( 
-              <StyledTableRow key={index}>
-                <StyledTableCell component="th" scope="row" colSpan={3} sx={{ margin: 0, padding: 0 }}>
-                  <Skeleton key={`skeleton-${index}`} variant="rectangular" width="100%" height={53} />            
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-            {!loading && podCastDetail?.results.map(
-              (podCastDetail: Episode, index: number) => (
+            {loading &&
+              Array.from({ length: 10 }, (_, index) => (
                 <StyledTableRow key={index}>
-                  <StyledTableCell component="th" scope="row">
-                    <Link
-                      to={`/podcast/${podcastId}/episode/${podCastDetail.trackId}`}
-                    >
-                      {podCastDetail.trackName}
-                    </Link>
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {toDateFormat(podCastDetail.releaseDate)}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {millisecondsToMinutesSeconds(
-                      podCastDetail.trackTimeMillis
-                    )}
+                  <StyledTableCell
+                    component="th"
+                    scope="row"
+                    colSpan={3}
+                    sx={{ margin: 0, padding: 0 }}
+                  >
+                    <Skeleton
+                      key={`skeleton-${index}`}
+                      variant="rectangular"
+                      width="100%"
+                      height={53}
+                    />
                   </StyledTableCell>
                 </StyledTableRow>
-              )
-            )}
+              ))}
+            {!loading &&
+              podCastDetail?.results.map(
+                (podCastDetail: Episode, index: number) => (
+                  <StyledTableRow key={index}>
+                    <StyledTableCell component="th" scope="row">
+                      <Link
+                        to={`/podcast/${podcastId}/episode/${podCastDetail.trackId}`}
+                      >
+                        {podCastDetail.trackName}
+                      </Link>
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                      {toDateFormat(podCastDetail.releaseDate)}
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                      {millisecondsToMinutesSeconds(
+                        podCastDetail.trackTimeMillis
+                      )}
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )
+              )}
           </TableBody>
         </Table>
       </TableContainer>

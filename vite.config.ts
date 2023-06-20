@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [react(), ViteMinifyPlugin({})],
   base: '/inditex-podcast/',
   build: {
-    minify: 'terser'
-  }
+    minify: 'terser',
+  },
 });

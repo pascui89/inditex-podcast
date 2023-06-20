@@ -26,9 +26,11 @@ describe('API Integration Tests', () => {
 
       const result = await fetchDetail(id);
 
-      expect(axios.get).toHaveBeenCalledWith(`${ALL_ORIGINS_URL}${encodeURIComponent(
-        `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`
-      )}`);
+      expect(axios.get).toHaveBeenCalledWith(
+        `${ALL_ORIGINS_URL}${encodeURIComponent(
+          `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`
+        )}`
+      );
       expect(result).toEqual(mockPodcastDetail);
     });
   });
@@ -47,7 +49,11 @@ describe('API Integration Tests', () => {
 
       const result = await fetchPodcasts(limit);
 
-      expect(axios.get).toHaveBeenCalledWith(`${ALL_ORIGINS_URL}${encodeURIComponent(`https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`)}`);
+      expect(axios.get).toHaveBeenCalledWith(
+        `${ALL_ORIGINS_URL}${encodeURIComponent(
+          `https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`
+        )}`
+      );
       expect(result).toEqual(podcastMock);
     });
   });

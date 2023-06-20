@@ -1,4 +1,11 @@
-import { Fragment, cloneElement, useEffect, useState, Children, ReactNode } from 'react';
+import {
+  Fragment,
+  cloneElement,
+  useEffect,
+  useState,
+  Children,
+  ReactNode,
+} from 'react';
 
 type ErrorBoundaryProps = {
   children: ReactNode;

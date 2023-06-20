@@ -9,10 +9,8 @@ global.React = React;
 describe('PodcardDetail Test', () => {
   it('should render correctly with podcast data', () => {
     const entry = podcastMock.feed.entry[0];
-    render(
-      <PodcardDetail podCast={entry} />
-    );
-    const element = screen.getAllByRole("heading");
+    render(<PodcardDetail podCast={entry} />);
+    const element = screen.getAllByRole('heading');
     expect(element).not.toHaveLength(0);
   });
 

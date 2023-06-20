@@ -42,7 +42,7 @@ describe('Podcard E2E Test', () => {
         </BrowserRouter>
       </Provider>
     );
-    const element = screen.getAllByRole("heading");
+    const element = screen.getAllByRole('heading');
     expect(element).not.toHaveLength(0);
   });
 });

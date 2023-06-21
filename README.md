@@ -30,14 +30,18 @@ git clone https://github.com/pascui89/inditex-podcast.git
 ```bash
 cd inditex-podcast
 npm install
-npm run build
-npm start
+npm run dev
 ```
 
 3. Los tests de la aplicación funcionan y podrán ejecutarse ejecutando la siguiente instrucción:
 
 ```bash
 npm run test
+```
+
+4. Deploy o compilado para entorno productivo:
+```bash
+npm run build
 ```
 
 **Por falta de tiempo no todos los componentes de la aplicación tendrán tests asociados, soy consciente de que es una mejora pendiente del aplicativo.**

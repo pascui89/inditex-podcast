@@ -1,5 +1,6 @@
 import { Card, CardContent, Skeleton, Typography } from '@mui/material';
 import { PodcastDetail } from '../models';
+import { StyledCardContentPaddingNone } from './styled';
 
 interface IProp {
   loading: boolean;
@@ -19,7 +20,7 @@ export default function PodcardEpisodesCounter(props: IProp) {
   return (
     <Card id="podcardEpisodes">
       <CardContent className="text-left">
-        <CardContent className="p-0">
+        <StyledCardContentPaddingNone>
           {loading && (
             <Skeleton
               data-testid="loading-skeleton"
@@ -33,7 +34,7 @@ export default function PodcardEpisodesCounter(props: IProp) {
               Episodes: {podCastDetail?.resultCount}
             </Typography>
           )}
-        </CardContent>
+        </StyledCardContentPaddingNone>
       </CardContent>
     </Card>
   );

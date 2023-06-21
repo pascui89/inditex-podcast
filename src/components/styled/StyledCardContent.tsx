@@ -11,5 +11,6 @@ export const StyledCardContent = styled(CardContent)`
 `;
 
 export const StyledCardContentPaddingNone = styled(CardContent)`
-    padding: 0
+    padding: 0;
+    padding-bottom: 0 !important;
 `;

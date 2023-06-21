@@ -1,7 +1,5 @@
 import { Fragment, useEffect } from 'react';
 import {
-  Card,
-  CardContent,
   Paper,
   Skeleton,
   Table,
@@ -9,38 +7,17 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TableRow,
-  styled,
-  tableCellClasses,
+  TableRow
 } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import { Episode, PodcastDetail } from '../models';
 import { millisecondsToMinutesSeconds, toDateFormat } from '../utils';
+import { StyledCardContentPaddingNone, StyledCardOverflowAuto, StyledTableCell, StyledTableRow } from './styled';
 
 interface IProp {
   loading: boolean;
   podCastDetail: PodcastDetail | null;
 }
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
 
 /**
  * Component for displaying a list of podcast cards.
@@ -57,7 +34,7 @@ export default function PodcartEpisodes(props: IProp) {
   const renderGridTable = (
     <Fragment>
       <TableContainer component={Paper}>
-        <Table sx={{ width: '100%' }} aria-label="customized table">
+        <Table className='w-full' aria-label="customized table">
           <TableHead>
             <TableRow>
               <TableCell>Title</TableCell>
@@ -74,7 +51,6 @@ export default function PodcartEpisodes(props: IProp) {
                     data-testid="skeleton"
                     scope="row"
                     colSpan={3}
-                    sx={{ margin: 0, padding: 0 }}
                   >
                     <Skeleton
                       key={`skeleton-${index}`}
@@ -114,15 +90,12 @@ export default function PodcartEpisodes(props: IProp) {
   );
 
   return (
-    <Card
-      id="podcardEpisodes"
-      style={{ overflowY: 'auto', maxHeight: 'calc(100vh - 300px)' }}
-    >
-      <CardContent sx={{ textAlign: 'left' }} style={{ margin: 0, padding: 0 }}>
-        <CardContent style={{ margin: 0, padding: 0 }}>
+    <StyledCardOverflowAuto>
+      <StyledCardContentPaddingNone>
+        <StyledCardContentPaddingNone>
           {renderGridTable}
-        </CardContent>
-      </CardContent>
-    </Card>
+        </StyledCardContentPaddingNone>
+      </StyledCardContentPaddingNone>
+    </StyledCardOverflowAuto>
   );
 }

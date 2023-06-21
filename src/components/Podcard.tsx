@@ -36,28 +36,8 @@ export default function Podcard(props: Props) {
   };
 
   return (
-    <Card
-      key={id}
-      sx={{
-        cursor: 'pointer',
-        transition: 'transform 0.2s',
-        '&:hover': {
-          transform: 'scale(1.05)',
-          boxShadow:
-            '0px 2px 1px -1px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(0,0,0,0.18), 0px 1px 3px 0px rgba(0,0,0,0.20)',
-        },
-      }}
-      onClick={handleCardClick}
-    >
-      <CardContent
-        sx={{
-          maxWidth: 345,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
+    <Card key={id} onClick={handleCardClick} className="cursor-pointer transition-transform duration-200 hover:scale-105 hover:shadow-lg">
+      <CardContent className="max-w-[345px] flex justify-center items-center flex-col">
         {loading ? (
           <Skeleton
             data-testid="loading-data"

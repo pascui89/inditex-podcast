@@ -31,9 +31,9 @@ export default function PodcardEpisodeMedia(props: IProp) {
   }, []);
 
   return (
-    <Card id="podcardEpisodes">
-      <CardContent sx={{ textAlign: 'left' }}>
-        <CardContent style={{ margin: 0, padding: 0 }}>
+    <Card className="max-w-full">
+      <CardContent className="text-left">
+        <CardContent className="m-0 p-0">
           {loading ? (
             <Skeleton
               id="skeletonLoader"
@@ -41,7 +41,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
               variant="rounded"
               width="100%"
               height={32}
-              sx={{ marginBottom: 2 }}
+              className="mb-2"
             />
           ) : (
             <Typography variant="h6" gutterBottom>
@@ -54,7 +54,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
               variant="rounded"
               width="100%"
               height={215}
-              sx={{ marginBottom: 2 }}
+              className="mb-2"
             />
           ) : (
             <p
@@ -72,7 +72,7 @@ export default function PodcardEpisodeMedia(props: IProp) {
           ) : (
             <audio
               data-testid="episodeUrl"
-              style={{ width: '100%' }}
+              className="w-full"
               src={episode?.episodeUrl}
               controls={true}
               autoPlay={false}

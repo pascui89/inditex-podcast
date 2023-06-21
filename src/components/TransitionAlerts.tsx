@@ -20,7 +20,7 @@ export default function TransitionAlerts(props: IProp) {
   const [open, setOpen] = React.useState(true);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box className="w-full">
       <Collapse in={open}>
         <Alert
           severity={props.severity}
@@ -36,7 +36,7 @@ export default function TransitionAlerts(props: IProp) {
               <CloseIcon fontSize="inherit" />
             </IconButton>
           }
-          sx={{ mb: 2, enter: { duration: 0.5 } }}
+          className={`mb-2 ${open ? 'animate-pulse' : ''}`}
         >
           {props.text}
         </Alert>

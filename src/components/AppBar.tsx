@@ -1,37 +1,16 @@
 import {
-  Avatar,
   CircularProgress,
   Container,
   IconButton,
   Toolbar,
   Tooltip,
-  Typography,
-  styled,
 } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store/types/RootState';
-
-const StyledTypography = styled(Typography)`
-  display: flex;
-  font-family: monospace;
-  font-weight: 700;
-  letter-spacing: 0.3rem;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: #ff0000; /* Cambia el color de resaltado al pasar el ratón */
-  }
-
-  &::selection {
-    background-color: #ff0000; /* Cambia el color de fondo de la selección */
-    color: #ffffff; /* Cambia el color del texto de la selección */
-  }
-`;
+import { StyledAvatar, StyledTypography } from './styled';
 
 /**
  * ResponsiveAppBar Component
@@ -64,34 +43,25 @@ export default function ResponsiveAppBar() {
     <AppBar
       color="default"
       position="fixed"
-      sx={{ boxShadow: '0px 2px 0px 0px rgba(0,0,0,0.14)' }}
+      className="shadow-lg"
     >
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
+          className="flex justify-between"
         >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div  className='flex items-center'>
             <Tooltip title="Go Home">
               <IconButton onClick={handleGoHomeRedirect}>
-                <Avatar
+                <StyledAvatar
                   alt="Inditex PodCast"
                   src="logo.jpg"
-                  sx={{
-                    width: 90,
-                    height: 90,
-                    display: { sx: 'none', md: 'flex' },
-                  }}
                 />
               </IconButton>
             </Tooltip>
             <StyledTypography
               variant="h6"
               noWrap
-              sx={{ marginLeft: '16px' }}
               onClick={handleGoHomeRedirect}
             >
               Podcaster

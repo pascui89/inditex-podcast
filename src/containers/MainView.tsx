@@ -29,7 +29,7 @@ export function MainView() {
   return (
     <Container maxWidth="xl">
       <Grid container mt={12} spacing={2}>
-        <Grid item xs={12} sx={{ justifyContent: 'flex-end' }}>
+        <Grid item xs={12} className="justify-end">
           <PodcardFilter />
         </Grid>
         <Grid item xs={12}>

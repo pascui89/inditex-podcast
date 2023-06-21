@@ -33,18 +33,17 @@ export default function PodcardFilter() {
   };
 
   return (
-    <Grid container sx={{ justifyContent: 'flex-end' }}>
-      <Grid item xs={8} md={4} sx={{ textAlign: 'right' }}>
+    <Grid container className='justify-end'>
+      <Grid item xs={8} md={4} className='text-right items-center'>
         <Badge
           data-testid="badgeData"
           badgeContent={filteredItems?.length}
           color="info"
-          sx={{ marginTop: 3 }}
+          className="mt-7 mr-7"
         />
         <TextField
           id="filterText"
           data-testid="filterText"
-          sx={{ marginLeft: 4 }}
           label="Filter podcasts..."
           variant="outlined"
           value={text}

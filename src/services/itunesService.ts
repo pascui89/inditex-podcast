@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Episode, Podcast, PodcastDetail } from '../models';
 
-const ALL_ORIGINS_URL = 'https://api.allorigins.win/get?url=';
+const CUSTOM_PROXY_URL = 'http://localhost:3000/proxy?url=';
 const ITUNES_URL = 'https://itunes.apple.com/';
 
 /**
@@ -11,12 +11,12 @@ const ITUNES_URL = 'https://itunes.apple.com/';
  * @returns A promise that resolves with the podcast details.
  */
 export const fetchDetail = async (id: string): Promise<PodcastDetail> => {
-  const response = await axios.get(
-    `${ALL_ORIGINS_URL}${encodeURIComponent(
+  const { data } = await axios.get(
+    `${CUSTOM_PROXY_URL}${encodeURIComponent(
       `${ITUNES_URL}lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=100`
     )}`
   );
-  return JSON.parse(response.data.contents) as PodcastDetail;
+  return data as PodcastDetail;
 };
 
 /**
@@ -29,12 +29,13 @@ export const fetchEpisode = async (
   episodeId: number,
   limit: number = 100
 ): Promise<Episode> => {
-  const response = await axios.get<Episode>(
-    `${ALL_ORIGINS_URL}${encodeURIComponent(
+  const {data} = await axios.get<Episode>(
+    `${CUSTOM_PROXY_URL}${encodeURIComponent(
       `${ITUNES_URL}lookup?id=${episodeId}&media=podcast&entity=podcastEpisode&limit=${limit}`
     )}`
   );
-  return response.data;
+
+  return data;
 };
 
 /**
@@ -43,10 +44,8 @@ export const fetchEpisode = async (
  * @returns A promise that resolves with the list of podcasts.
  */
 export const fetchPodcasts = async (limit: number = 100): Promise<Podcast> => {
-  const response = await axios.get(
-    `${ALL_ORIGINS_URL}${encodeURIComponent(
-      `${ITUNES_URL}us/rss/toppodcasts/limit=${limit}/genre=1310/json`
-    )}`
+  const { data } = await axios.get(
+    `${CUSTOM_PROXY_URL}${`${ITUNES_URL}us/rss/toppodcasts/limit=${limit}/genre=1310/json`}`
   );
-  return JSON.parse(response.data.contents) as Podcast;
+  return data as Podcast;
 };

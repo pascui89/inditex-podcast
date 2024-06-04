@@ -6,17 +6,17 @@ const episodeSlice = createSlice({
   initialState,
   reducers: {
     fetchDetailBegin: (state) => {
-      state.loading = true;
+      state.loadingDetail = true;
       state.error = null;
     },
     fetchDetailSuccess: (state, action) => {
       state.podCastDetail = action.payload;
-      state.loading = false;
+      state.loadingDetail = false;
       state.error = null;
     },
     fetchDetailFailure: (state, action) => {
       state.podCastDetail = null;
-      state.loading = false;
+      state.loadingDetail = false;
       state.error = action.payload;
     },
     fetchEpisodeBegin: (state) => {

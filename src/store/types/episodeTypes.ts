@@ -46,7 +46,7 @@ export type EpisodeActionTypes =
 export type EpisodeState = {
   podCastDetail: PodcastDetail | null;
   episode: Episode | null;
-  loading: boolean;
+  loadingDetail: boolean;
   loadingEpisode: boolean;
   error: string | null;
 };
@@ -54,7 +54,7 @@ export type EpisodeState = {
 export const initialState: EpisodeState = {
   podCastDetail: null,
   episode: null,
-  loading: false,
+  loadingDetail: false,
   loadingEpisode: false,
   error: null,
 };

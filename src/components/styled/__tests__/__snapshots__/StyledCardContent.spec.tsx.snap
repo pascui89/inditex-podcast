@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledCardContent should render StyledCardContent 1`] = `
+<div>
+  <div
+    class="MuiCardContent-root css-tjzwvn-MuiCardContent-root"
+  />
+</div>
+`;
+
+exports[`StyledCardContent should render StyledCardContentPaddingNone 1`] = `
+<div>
+  <div
+    class="MuiCardContent-root css-1aqrhzj-MuiCardContent-root"
+  />
+</div>
+`;

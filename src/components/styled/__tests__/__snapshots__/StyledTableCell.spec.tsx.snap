@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledTableCell should render 1`] = `
+<div>
+  <td
+    class="MuiTableCell-root MuiTableCell-sizeMedium css-167nyue-MuiTableCell-root"
+  />
+</div>
+`;

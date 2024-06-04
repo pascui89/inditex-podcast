@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledMainCardContent should render 1`] = `
+<div>
+  <div
+    class="MuiCardContent-root css-yh82xd-MuiCardContent-root"
+  />
+</div>
+`;

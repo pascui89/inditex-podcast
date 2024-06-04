@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledTableRow should render 1`] = `
+<div>
+  <tr
+    class="MuiTableRow-root css-1enotpu-MuiTableRow-root"
+  />
+</div>
+`;

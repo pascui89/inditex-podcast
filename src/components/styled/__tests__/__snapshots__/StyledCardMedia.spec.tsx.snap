@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledCardMedia should render 1`] = `
+<div>
+  <div
+    class="MuiCardMedia-root css-132720y-MuiCardMedia-root"
+  />
+</div>
+`;

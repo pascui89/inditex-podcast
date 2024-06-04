@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledTypography should render 1`] = `
+<div>
+  <p
+    class="MuiTypography-root MuiTypography-body1 css-m0d3b0-MuiTypography-root"
+  />
+</div>
+`;

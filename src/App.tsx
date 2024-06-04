@@ -3,7 +3,7 @@ import { store } from './store';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Container, Grid } from '@mui/material';
-import ResponsiveAppBar from './components/AppBar';
+import ResponsiveAppBar from './components/responsive-app-bar/ResponsiveAppBar';
 import { Router } from './interfaces';
 
 function App() {

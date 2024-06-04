@@ -16,7 +16,7 @@ const useEpisodeView = () => {
         (state: RootState) => state.episodeReducer.podCastDetail
     );
     const loading = useSelector(
-        (state: RootState) => state.episodeReducer.loading
+        (state: RootState) => state.episodeReducer.loadingDetail
     );
 
     const { podCast } = usePodcast(podcastId, filteredItems);

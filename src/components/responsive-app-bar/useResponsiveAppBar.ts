@@ -5,10 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 const useResponsiveAppBar = () => {
     const navigate = useNavigate();
-    const {
-        podcastReducer: { loading }, 
-        episodeReducer: { loading: loadingDetail, loadingEpisode }
-    } = useSelector((state: RootState) => state);
+    const loading = useSelector(
+        (state: RootState) => state.podcastReducer.loading
+      );
+    const loadingDetail = useSelector(
+    (state: RootState) => state.episodeReducer.loadingDetail
+    );
+    const loadingEpisode = useSelector(
+    (state: RootState) => state.episodeReducer.loadingEpisode
+    );
 
     const [showSpinner, setShowSpinner] = useState(false);
 

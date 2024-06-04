@@ -16,7 +16,7 @@ const useDetailView = () => {
         (state: RootState) => state.episodeReducer.podCastDetail
     );
     const loading = useSelector(
-        (state: RootState) => state.episodeReducer.loading
+        (state: RootState) => state.episodeReducer.loadingDetail
     );
     const error = useSelector((state: RootState) => state.episodeReducer.error);
 

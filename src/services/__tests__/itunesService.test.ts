@@ -5,7 +5,7 @@ import { fetchDetail, fetchPodcasts } from '../../services/itunesService';
 
 jest.mock('axios');
 
-const ALL_ORIGINS_URL = 'https://api.allorigins.win/get?url=';
+const ALL_ORIGINS_URL = '/proxy?url=';
 describe('API Integration Tests', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -50,9 +50,7 @@ describe('API Integration Tests', () => {
       const result = await fetchPodcasts(limit);
 
       expect(axios.get).toHaveBeenCalledWith(
-        `${ALL_ORIGINS_URL}${encodeURIComponent(
-          `https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`
-        )}`
+        `${ALL_ORIGINS_URL}${`https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=1310/json`}`
       );
       expect(result).toEqual(podcastMock);
     });

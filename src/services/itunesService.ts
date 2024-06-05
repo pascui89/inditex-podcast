@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Episode, Podcast, PodcastDetail } from '../models';
 
-const CUSTOM_PROXY_URL = 'http://localhost:3000/proxy?url=';
+const CUSTOM_PROXY_URL = '/proxy?url=';
 const ITUNES_URL = 'https://itunes.apple.com/';
 
 /**

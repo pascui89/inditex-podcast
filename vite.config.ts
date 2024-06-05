@@ -10,6 +10,7 @@ export default defineConfig({
     minify: 'terser',
   },
   server: {
+    open: true,
     cors: false,
     proxy: {
       '/proxy': {
